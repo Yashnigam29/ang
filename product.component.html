@@ -1,0 +1,66 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<ul> <h1>Welcome to Product Application!</h1>
+  <h3>Product List</h3>  </ul>
+<div class="container">
+   
+  <table class="table">
+    <tr class="active">
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let pro of products,let i=index" class="active">
+      <td>{{pro.ProdId}}</td>
+      <td>{{pro.ProdName}}</td>
+      <td>{{pro.ProdDes}}</td>
+      <td>{{pro.ProdPrice}}</td>
+      <td><button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" class="btn btn-success" (click)="edit(i)">Edit</button> 
+       
+          <button class="btn btn-danger" (click)="delete(i)">Delete</button></td>
+    </tr>
+  </table>
+</div>
+<div class="container">
+  <ul class="pagination">
+    <li><a href="#"><<Previous</a></li> 
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">Next>></a></li>
+  </ul>
+</div>
+<div class="col-sm-offset-5">
+  <button type="submit" class="btn btn-success" (click)="addProduct()">Add Product</button>
+</div>
+
+
+<div id="id01" class="modal">
+  <form id="f1" class="modal-content animate">
+      <div >
+          <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+         <h3>Enter details to modify informations</h3>
+      </div>
+
+      <div class="container form-group">
+          <label style="color:white" for="ID"><b>ID</b></label>
+          <input class="form-control" type="number" placeholder="Enter ID" name="ID" required>
+
+          <label style="color:white" for="name"><b>Name</b></label>
+          <input class="form-control" type="text" placeholder="Enter Name" name="name" required>
+          
+          <label style="color:white" for="des"><b>Description</b></label>
+          <input class="form-control" type="text" placeholder="Enter Description" name="des" required>
+          
+          <label style="color:white" for="price"><b>Price</b></label>
+          <input class="form-control" type="text" placeholder="Enter Price" name="price" required>
+
+          <button class="btn btn-success" type="submit"> Submit </button>
+        
+      </div>
+
+    
+  </form>
+</div>
